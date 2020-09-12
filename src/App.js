@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from "axios";
+import { AiFillAudio } from "react-icons/ai";
 
 function App() {
   const [speechRecognition, setSpeechRecognition] = useState();
@@ -41,7 +42,19 @@ function App() {
     <div className="App">
       <h1>HummingBird</h1>
       <p>Heard some lyrics to a song that you can't quite place? Belt them out to find out what its from!</p>
-      <button onClick={startSpeechRecognition}>Click To Search</button>
+      <button className="record-button" onClick={startSpeechRecognition}>
+          <AiFillAudio className="mic-icon" fontSize="3rem">
+          </AiFillAudio>
+          <svg  width="0" height="0">
+          <defs>
+            <linearGradient id="gradient">
+              <stop offset="25%" stop-color="#5c99fa" />
+              <stop offset="50%" stop-color="#fcfc6f" />
+              <stop offset="85%" stop-color="#fc6fe0" />
+            </linearGradient>
+          </defs>
+          </svg>
+      </button>
       {tracks.map(track=>{
         track = track.track;
         return (
