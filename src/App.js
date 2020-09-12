@@ -39,6 +39,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>HummingBird</h1>
+      <p>Heard some lyrics to a song that you can't quite place? Belt them out to find out what its from!</p>
       <button onClick={startSpeechRecognition}>Click To Search</button>
       {tracks.map(track=>{
         track = track.track;
