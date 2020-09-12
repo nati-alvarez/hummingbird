@@ -12,6 +12,7 @@ function App() {
   const [speechRecognition, setSpeechRecognition] = useState();
   const [recording, setRecording] = useState(false);
   const [error, setError] = useState(null);
+  const [loadingTracks, setLoadingTracks] = useState();
   const [tracks, setTracks] = useState([]);
 
   useEffect(()=>{
@@ -23,6 +24,7 @@ function App() {
 
       // Recognition start event handler
       recognition.onstart = () => { 
+        setTracks([]);
         setError(null);
         setRecording(true);
       }
@@ -33,12 +35,16 @@ function App() {
       }
 
       recognition.onresult = function(event) {
-        setRecording(false);
         var transcript = event.results[0][0].transcript;
-        console.log(transcript);
+
+        setRecording(false);
+        setLoadingTracks(true);
+        
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?quorum_factor=1&apikey=80def77c0dbd57d9192eecb88c6b4caf&q_lyrics=${transcript}`).then(res=>{
-        setTracks(res.data.message.body.track_list);
+          setLoadingTracks(false);
+          setTracks(res.data.message.body.track_list);
         }).catch(err=>{
+          setLoadingTracks(false);
           console.log(err);
         })
       };
@@ -58,6 +64,7 @@ function App() {
       {recording? <IsRecording/>: <RecordButton startSpeechRecognition={startSpeechRecognition}/>}
       {error && <p className="error">{error}</p>}
       <section className="songs">
+        {loadingTracks && <p>Looking for songs...</p>}
         {tracks.map(track=>{
           track = track.track;
           return (
