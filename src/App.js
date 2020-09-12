@@ -6,6 +6,7 @@ import axios from "axios";
 import RecordButton from "./components/RecordButton";
 import Header from "./components/Header";
 import IsRecording from './components/IsRecording';
+import Song from "./components/Song";
 
 function App() {
   const [speechRecognition, setSpeechRecognition] = useState();
@@ -56,16 +57,14 @@ function App() {
       <Header/>
       {recording? <IsRecording/>: <RecordButton startSpeechRecognition={startSpeechRecognition}/>}
       {error && <p className="error">{error}</p>}
-      {tracks.map(track=>{
-        track = track.track;
-        return (
-          <div>
-          <p>{track.track_name}</p>
-          <p>{track.artist_name}</p>
-          <a href={track.track_share_url}>See Lyrics</a>
-          </div>
-        )
-      })}
+      <section className="songs">
+        {tracks.map(track=>{
+          track = track.track;
+          return (
+            <Song track={track}/>
+          )
+        })}
+      </section>
     </div>
   );
 }

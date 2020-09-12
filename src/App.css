@@ -57,3 +57,27 @@ body {
 .error {
   color: #ed2162;
 }
+
+.songs {
+  margin-top: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.song {
+  background: whitesmoke;
+  color: #2f2f2f;
+  width: 30%;
+  box-sizing: border-box;
+  margin-bottom: 2vh;
+  padding: 2vh;
+}
+
+.song a {
+  color: #ed2162;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #ed2162;
+  padding-bottom: 2px;
+}
