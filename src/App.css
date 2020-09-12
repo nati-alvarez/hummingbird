@@ -81,3 +81,15 @@ body {
   border-bottom: 2px solid #ed2162;
   padding-bottom: 2px;
 }
+
+@media (max-width: 800px){
+  .song {
+    width: 48%;
+  }
+}
+
+@media (max-width: 500px){
+  .song {
+    width: 95%;
+  }
+}

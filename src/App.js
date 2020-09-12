@@ -61,7 +61,7 @@ function App() {
         {tracks.map(track=>{
           track = track.track;
           return (
-            <Song track={track}/>
+            <Song key={track.track_id} track={track}/>
           )
         })}
       </section>
