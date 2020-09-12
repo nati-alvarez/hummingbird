@@ -24,3 +24,36 @@ body {
   font-size: 5rem;
   fill: url(#gradient);
 }
+
+.is-recording {
+  padding: 50px;
+}
+
+.is-recording span {
+  border-radius: 50%;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  animation: 1200ms record linear infinite;
+  transform-origin: center center;
+  margin: 0 auto;
+}
+
+@keyframes record {
+  0% {
+    background: linear-gradient(-2  5deg, #5c99fa, #fc6fe0, #fcfc6f);
+  }
+  25% {
+    background: linear-gradient(-25deg, #5c99fa, #fc6fe0, #fcfc6f);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+  }
+}
+
+.error {
+  color: #ed2162;
+}
