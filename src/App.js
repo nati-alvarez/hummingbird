@@ -48,9 +48,9 @@ function App() {
           <svg  width="0" height="0">
           <defs>
             <linearGradient id="gradient">
-              <stop offset="25%" stop-color="#5c99fa" />
-              <stop offset="50%" stop-color="#fcfc6f" />
-              <stop offset="85%" stop-color="#fc6fe0" />
+              <stop offset="25%" stopColor="#5c99fa" />
+              <stop offset="50%" stopColor="#fcfc6f" />
+              <stop offset="85%" stopColor="#fc6fe0" />
             </linearGradient>
           </defs>
           </svg>
